@@ -1,0 +1,12 @@
+.error
+{
+    border-color: red;    
+}
+.bordaCabecalho
+{
+    background-color: beige; height: auto; width:90%;margin: auto;border-radius: 10px;    
+}
+.linhaCabecalho
+{
+    width:70%; margin: auto; padding-top: 2%; text-align: center;
+}

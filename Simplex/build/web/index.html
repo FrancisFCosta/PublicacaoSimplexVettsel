@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Simplex - Vettsel</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body> 
+        <div class="page-container">
+            <div class="page-content">
+                <div class="container bordaCabecalho" >
+                    <div id="main" class='navbar linhaCabecalho'> 
+                        <h1><b>Simplex: Algoritmo de Vettsel</b></h1>
+                    </div>
+                </div>   
+                <div class="container" style="padding-top:4%;">
+                    <div class="form-inline">
+                        <div class="col-md-5 text-center"><b>Função Objetivo</b></div>
+                        <div class="form-inline col-md-5">
+                            <input type="text" class="col-md-6 form-control" id="funcaoObjetivo">
+                            <div class="col-md-2">
+                                <select class="form-control" id="tipoFuncaoObjetivo">
+                                    <option value="MAX">MAX</option>
+                                    <option value="MIN">MIN</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="padding-top:4%;">
+                        <div id="regiaoGrid" class="row" style="width:80%; margin: auto">
+                            <div class="table-responsive col-md-12">
+                                <table id="gridRestricoes" class="table table-striped" cellspacing="0" cellpadding="0" style='border-bottom: 1px solid #eceeef;'>
+                                    <thead>
+                                        <tr>
+                                            <th width='10%'>N°</th>
+                                            <th width='80%' style='text-align:center'>Restrições</th>
+                                            <th class="actions" width='10%'></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row" style='padding-left: 5%; margin: auto;'> 
+                                <div class="col-md-8" style='padding-top: 5%;'>
+                                    <input type="text" class="form-control" id="campoAdicionaRetricao">
+                                </div>
+                                <div class="col-md-2" style='padding-top: 5%;'>
+                                    <button type="submit" class="btn btn-success" name="adicionarRestricao"> + Restrição</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style='padding:5%;'>
+                        <div class="row" style='width:90%; margin: auto;'> 
+                            <button type="submit" class="btn btn-info" style='width:100%;' id="btnExecutar">Executar Algoritmo</button>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal" id="modalRetornoAlgoritmo" style="width: 75%; margin: auto;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <div style='text-align: center;font-size: 1.75rem; margin:auto'>Simplex Vettsel - Resultado </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container col-md-12">
+                            <div class="table-responsive col-md-12">
+                                <table id="gridReposta" class="table table-striped" cellspacing="0" cellpadding="0" style='border-bottom: 1px solid #eceeef;'>
+                                    <thead>
+                                        <tr>
+                                            <th width='10%'>Variável</th>
+                                            <th width='80%' style='text-align:center'>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div></div>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/notify.min.js"></script>
+        <script src="js/Simplex.js"></script>
+
+        <script>
+            $(document).ready(
+                    function () {
+                        ContadorElementosGrid = 0;
+                        adicionarEventosGrid();
+                    });
+        </script>
+    </body>
+</html>
